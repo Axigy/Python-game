@@ -32,6 +32,8 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
+ball.dx = 2
+ball.dy = 2
 
 #Function 
 #Paddal_a moving
@@ -71,3 +73,17 @@ wn.onkeypress(paddle_b_down, "Down")
 while True:
     wn.update()
 
+    #Move the ball
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
+
+    #Border checking
+    if ball.ycor() > 290:
+        ball.sety(290)
+        ball.dy *= -1
+
+    if ball.xcor() > 790:
+        ball.setx(290)
+        ball.dx *= -1
+
+    
